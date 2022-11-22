@@ -1,0 +1,144 @@
+db.mydata.update(
+    // Match all documents
+    {},
+    // MongoDB 4.2+ can use an aggregation pipeline for updates
+    [{
+        $set: {
+            "invoices.services.unit_price": "$invoices.services.price"
+        }
+    }]
+
+
+---------------
+
+[{
+        $set: {
+            "ScanningStatus": "$SplittingStatus"
+        }
+    }]
+
+
+----------
+
+[{
+        $addFields: {
+            "ScanningStatus": "$SplittingStatus"
+        }
+    }]
+
+
+db.test1.update({},[{$set : { "ScanningStatus": "$SplittingStatus" }}])
+
+db.foo.find().sort({x:1});
+
+[{
+ "$set": {
+  "ScanningStatus": "$SplittingStatus"
+ }
+}]
+
+db.getCollection("test1").find({})
+
+https://jmp.allianz.net/browse/ONEAIMS-2968
+
+
+
+
+
+
+
+
+
+db.test1.update({},{$set : { "state": "$city" }})
+https://github.com/bstashchuk
+
+------------
+
+get 2 last records from mongo collection
+db.getCollection("AzPartnersIdentificationDbModel`2").find().sort({_id:-1}).limit(2);
+
+----
+get count of mongocollectoin
+
+db.dbcollection.count() 
+
+---
+
+db.getCollection("AzPartnersIdentificationDbModel`2").find().sort({_id:-1}).limit(2);
+
+----
+
+mongo inquery
+db.getCollection("crunchbase").find({ category_code: {$in:["Web"] } })
+db.getCollection("crunchbase").find({ title :{$in:[ "Board Member",] } }).count();
+
+
+
+
+
+
+db.getCollection('department').find({}).forEach(function (record) {
+  print("Name: " + record.Name)
+});https://github.com/Infinite-demo/mongo-query-example
+
+
+
+
+
+db.last_inserted.insertMany([
+       {"Name":"John", "Age": 22},
+       {"Name":"Bob", "Age": 21},
+       {"Name":"Christ", "Age": 26},
+       {"Name":"Robert", "Age": 23}
+])
+
+
+
+
+
+
+db.myCollection.aggregate([
+  {"$match": {"userID":"USER001"}},
+  {"$project": {"collegeIDs":1, "_id":0}},
+  {"$unwind":"$collegeIDs"},
+  {"$group": {"_id":"$collegeIDs", "count":{"$sum":1}}},
+  {"$match": {"count":{"$gt":1}}},
+])
+
+
+
+
+
+
+
+
+
+-----
+mongounwind
+
+
+db.collection.aggregate([
+  {
+    "$unwind": "$products"
+  },
+  {
+    "$group": {
+      "_id": "$products.pId",
+      "count": {
+        "$sum": 1
+      }
+    }
+  },
+  {
+    "$match": {
+      "_id": {
+        $in: [
+          123,
+          456,
+          789
+        ]
+      }
+    }
+  },
+  
+])
