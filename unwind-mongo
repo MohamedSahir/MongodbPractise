@@ -1,2 +1,25 @@
 https://stackoverflow.com/questions/71771642/find-duplicate-values-inside-an-array-of-objects-in-mongodb-in-single-record
 //stackoverflow.com/questions/70220158/unwind-3-arrays-in-mongodb
+https://stackoverflow.com/questions/16448175/whats-the-unwind-operator-in-mongodb
+simple unwind 
+{
+ title : "this is my title" ,
+ author : "bob" ,
+ posted : new Date () ,
+ pageViews : 5 ,
+ tags : [ "fun" , "good" , "fun" ] ,
+ comments : [
+             { author :"joe" , text : "this is cool" } ,
+             { author :"sam" , text : "this is bad" }
+ ],
+ other : { foo : 5 }
+}
+
+db.article.aggregate(
+    { $project : {
+        author : 1 ,
+        title : 1 ,
+        tags : 1
+    }},
+    { $unwind : "$tags" }
+);
