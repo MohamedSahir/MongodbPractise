@@ -1,0 +1,28 @@
+{  
+   "_id":ObjectId("562e7c594c12942f08fe4192"),
+   "shapes":[  
+      {  
+         "shape":"square",
+         "color":"blue"
+      },
+      {  
+         "shape":"circle",
+         "color":"red"
+      }
+   ]
+},
+{  
+   "_id":ObjectId("562e7c594c12942f08fe4193"),
+   "shapes":[  
+      {  
+         "shape":"square",
+         "color":"black"
+      },
+      {  
+         "shape":"circle",
+         "color":"green"
+      }
+   ]
+}
+
+https://stackoverflow.com/questions/3985214/retrieve-only-the-queried-element-in-an-object-array-in-mongodb-collection?rq=1
